@@ -19,11 +19,15 @@ from tqdm import tqdm
 
 def get_args():
     parser = argparse.ArgumentParser('SoftGroup')
-    parser.add_argument('config', type=str, help='path to config file')
-    parser.add_argument('checkpoint', type=str, help='path to checkpoint')
+    #parser.add_argument('config', type=str, help='path to config file')
+    #parser.add_argument('checkpoint', type=str, help='path to checkpoint')
+    parser.add_argument('--config', type=str, help='path to config file')
+    parser.add_argument('--checkpoint', type=str, help='path to checkpoint')
     parser.add_argument('--dist', action='store_true', help='run with distributed parallel')
     parser.add_argument('--out', type=str, help='directory for output results')
-    args = parser.parse_args()
+    #args = parser.parse_args()
+    # Below line resolves an error-> unrecognized arguments
+    args, unknown = parser.parse_known_args()
     return args
 
 
